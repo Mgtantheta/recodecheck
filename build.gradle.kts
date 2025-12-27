@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.spotless)
+    alias(libs.plugins.detekt)
 }
 
 spotless {
@@ -17,4 +18,20 @@ spotless {
         targetExclude("**/build/**/*.kts")
         ktlint()
     }
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    allRules = false
+    config.setFrom("$rootDir/config/detekt/detekt.yml")
+    baseline = file("$rootDir/config/detekt/baseline.xml")
+    parallel = true
+    source.setFrom(
+        files(
+            fileTree(projectDir) {
+                include("**/*.kt")
+                exclude("**/build/**")
+            },
+        ),
+    )
 }

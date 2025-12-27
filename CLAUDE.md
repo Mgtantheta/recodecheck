@@ -150,3 +150,21 @@ GitHub Actionsで以下を自動実行:
 - PR: Lint (Detekt, Spotless) + Unit Test + Build
 - main: UI Test + Release Build
 - Tag: APK/AAB作成 + GitHub Release
+
+## GitHub Operations
+
+PRの作成・更新には `gh` コマンドを使用する（MCP GitHub ツールは権限の問題があるため）:
+
+```bash
+# PR作成
+gh pr create --title "タイトル" --body "説明"
+
+# PR説明文の更新
+gh pr edit <PR番号> --body "新しい説明"
+
+# PRの確認
+gh pr view <PR番号>
+
+# PRのマージ
+gh pr merge <PR番号>
+```

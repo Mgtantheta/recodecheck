@@ -1,4 +1,4 @@
-package com.example.recodecheck
+package com.mgtantheta.blueprint
 
 import org.junit.Test
 

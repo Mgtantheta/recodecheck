@@ -1,4 +1,4 @@
-# recodecheck
+# Blueprint
 
 モダンなAndroidアーキテクチャを実践するためのサンプルプロジェクト。
 [Now in Android](https://github.com/android/nowinandroid)を参考に、最新のライブラリとベストプラクティスを採用。
@@ -58,7 +58,7 @@ MVVM + Repository + DDD (Clean Architecture)
 Now in Android を参考にしたマルチモジュール構成:
 
 ```
-recodecheck/
+blueprint/
 ├── app/                          # Application module
 │   └── src/
 ├── core/                         # Core modules
@@ -103,12 +103,12 @@ app
 
 | Plugin | 用途 |
 |--------|------|
-| `recodecheck.android.application` | Applicationモジュール用 |
-| `recodecheck.android.library` | Libraryモジュール用 |
-| `recodecheck.android.compose` | Compose設定 |
-| `recodecheck.android.hilt` | Hilt設定 |
-| `recodecheck.android.feature` | Featureモジュール用 |
-| `recodecheck.kotlin.library` | Pure Kotlinモジュール用 |
+| `blueprint.android.application` | Applicationモジュール用 |
+| `blueprint.android.library` | Libraryモジュール用 |
+| `blueprint.android.compose` | Compose設定 |
+| `blueprint.android.hilt` | Hilt設定 |
+| `blueprint.android.feature` | Featureモジュール用 |
+| `blueprint.kotlin.library` | Pure Kotlinモジュール用 |
 
 ## CI/CD (GitHub Actions)
 
@@ -228,8 +228,8 @@ PR作成
 
 ```bash
 # Clone
-git clone https://github.com/Mgtantheta/recodecheck.git
-cd recodecheck
+git clone https://github.com/Mgtantheta/blueprint.git
+cd blueprint
 
 # Build
 ./gradlew assembleDebug
@@ -240,8 +240,8 @@ cd recodecheck
 
 ## Roadmap
 
-- [ ] マルチモジュール化
-- [ ] Convention Plugins 導入
+- [x] マルチモジュール化
+- [x] Convention Plugins 導入
 - [ ] Hilt 導入
 - [ ] Navigation 3 導入
 - [ ] Ktor Client 導入

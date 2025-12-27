@@ -7,7 +7,7 @@ import org.gradle.kotlin.dsl.configure
 class AndroidLibraryComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            apply(plugin = "recodecheck.android.library")
+            apply(plugin = "blueprint.android.library")
             apply(plugin = "org.jetbrains.kotlin.plugin.compose")
 
             extensions.configure<LibraryExtension> {

@@ -1,12 +1,12 @@
 plugins {
-    id("recodecheck.android.application.compose")
+    id("blueprint.android.application.compose")
 }
 
 android {
-    namespace = "com.example.recodecheck"
+    namespace = "com.mgtantheta.blueprint"
 
     defaultConfig {
-        applicationId = "com.example.recodecheck"
+        applicationId = "com.mgtantheta.blueprint"
         versionCode = 1
         versionName = "1.0"
 

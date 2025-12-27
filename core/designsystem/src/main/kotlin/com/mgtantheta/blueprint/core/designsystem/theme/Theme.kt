@@ -1,4 +1,4 @@
-package com.example.recodecheck.core.designsystem.theme
+package com.mgtantheta.blueprint.core.designsystem.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -23,7 +23,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun RecodecheckTheme(
+fun BlueprintTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit

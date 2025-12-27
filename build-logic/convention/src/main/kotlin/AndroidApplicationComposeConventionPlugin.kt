@@ -8,7 +8,7 @@ import org.gradle.kotlin.dsl.dependencies
 class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            apply(plugin = "recodecheck.android.application")
+            apply(plugin = "blueprint.android.application")
             apply(plugin = "org.jetbrains.kotlin.plugin.compose")
 
             extensions.configure<ApplicationExtension> {

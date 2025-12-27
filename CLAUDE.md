@@ -38,7 +38,7 @@ MVVM + Repository + DDD (Clean Architecture)
 Presentation (UI)
     │ UiState, UiEvent
     ▼
-ViewModel
+ ViewModel
     │ suspend fun, Flow
     ▼
 Domain (UseCase)
@@ -55,7 +55,7 @@ Data (Implementation)
 ## Module Structure (Target)
 
 ```
-recodecheck/
+blueprint/
 ├── app/                      # Application module (エントリーポイント)
 ├── core/
 │   ├── common/               # 共通ユーティリティ、拡張関数
@@ -98,8 +98,8 @@ recodecheck/
 
 ### Package Naming
 ```
-com.example.recodecheck.feature.<feature_name>
-com.example.recodecheck.core.<core_module>
+com.mgtantheta.blueprint.feature.<feature_name>
+com.mgtantheta.blueprint.core.<core_module>
 ```
 
 ### File Naming

@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.example.recodecheck.buildlogic"
+group = "com.mgtantheta.blueprint.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -26,19 +26,19 @@ dependencies {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-            id = "recodecheck.android.application"
+            id = "blueprint.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("androidApplicationCompose") {
-            id = "recodecheck.android.application.compose"
+            id = "blueprint.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
         register("androidLibrary") {
-            id = "recodecheck.android.library"
+            id = "blueprint.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
         register("androidLibraryCompose") {
-            id = "recodecheck.android.library.compose"
+            id = "blueprint.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
     }

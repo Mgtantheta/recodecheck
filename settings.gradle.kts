@@ -21,7 +21,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "recodecheck"
+rootProject.name = "blueprint"
 
 include(":app")
 include(":core:designsystem")

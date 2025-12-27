@@ -1,4 +1,4 @@
-package com.example.recodecheck.core.designsystem.theme
+package com.mgtantheta.blueprint.core.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 

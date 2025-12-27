@@ -1,11 +1,13 @@
 # TODO
 
-## 現在のブランチ (feature/add-design-system)
-- [x] build-logic 作成
-- [x] Convention Plugins (4種)
-- [x] core:designsystem 作成
-- [x] 依存関係をConvention Plugin内で管理
-- [ ] ビルド確認 → mainにマージ
+## 現在のブランチ (feature/rename-to-blueprint)
+- [x] settings.gradle.kts rootProject.name 変更
+- [x] namespace/applicationId 変更 (com.mgtantheta.blueprint)
+- [x] Convention Plugin ID変更 (blueprint.*)
+- [ ] パッケージディレクトリリネーム
+- [ ] Theme名変更 (BlueprintTheme)
+- [ ] ドキュメント更新
+- [ ] GitHubリポジトリ名変更
 
 ## 次のタスク (ブランチ分けて実施)
 
@@ -40,9 +42,9 @@
 - [ ] feature:settings
 
 ## Convention Plugins 追加予定
-- [ ] recodecheck.android.hilt
-- [ ] recodecheck.android.feature
-- [ ] recodecheck.kotlin.library
+- [ ] blueprint.android.hilt
+- [ ] blueprint.android.feature
+- [ ] blueprint.kotlin.library
 
 ## 参考
 - [Now in Android](https://github.com/android/nowinandroid)

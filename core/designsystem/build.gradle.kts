@@ -1,7 +1,7 @@
 plugins {
-    id("recodecheck.android.library.compose")
+    id("blueprint.android.library.compose")
 }
 
 android {
-    namespace = "com.example.recodecheck.core.designsystem"
+    namespace = "com.mgtantheta.blueprint.core.designsystem"
 }

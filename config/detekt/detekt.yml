@@ -1,0 +1,124 @@
+# Detekt configuration
+# https://detekt.dev/docs/introduction/configurations
+
+build:
+  maxIssues: 0
+  excludeCorrectable: false
+
+complexity:
+  LongMethod:
+    threshold: 60
+  LongParameterList:
+    functionThreshold: 10
+    constructorThreshold: 10
+    ignoreDefaultParameters: true
+    ignoreDataClasses: true
+    ignoreAnnotatedParameter: ['Composable']
+  TooManyFunctions:
+    excludes: ['**/test/**']
+    thresholdInFiles: 20
+    thresholdInClasses: 20
+    thresholdInInterfaces: 20
+    thresholdInObjects: 20
+    thresholdInEnums: 20
+    ignoreOverridden: true
+  CyclomaticComplexMethod:
+    ignoreSingleWhenExpression: true
+
+coroutines:
+  active: true
+  GlobalCoroutineUsage:
+    active: true
+  RedundantSuspendModifier:
+    active: true
+  SleepInsteadOfDelay:
+    active: true
+  SuspendFunWithFlowReturnType:
+    active: true
+
+naming:
+  FunctionNaming:
+    ignoreAnnotated: ['Composable', 'Test', 'ParameterizedTest']
+  TopLevelPropertyNaming:
+    constantPattern: '[A-Z][_A-Za-z0-9]*'
+  InvalidPackageDeclaration:
+    active: true
+    excludes: ['**/build-logic/**/*.kt', '**/*.kts']
+  NoNameShadowing:
+    active: true
+
+potential-bugs:
+  AvoidReferentialEquality:
+    active: true
+  DontDowncastCollectionTypes:
+    active: true
+  HasPlatformType:
+    active: true
+  IgnoredReturnValue:
+    active: true
+  ImplicitUnitReturnType:
+    active: true
+  UnconditionalJumpStatementInLoop:
+    active: true
+
+style:
+  BracesOnIfStatements:
+    active: true
+    singleLine: 'consistent'
+    multiLine: 'consistent'
+  CanBeNonNullable:
+    active: true
+  ClassOrdering:
+    active: true
+  CollapsibleIfStatements:
+    active: true
+  EqualsOnSignatureLine:
+    active: true
+  ExplicitCollectionElementAccessMethod:
+    active: true
+  ForbiddenComment:
+    active: true
+    comments:
+      - value: 'FIXME:'
+        reason: 'Forbidden FIXME marker, please fix the problem.'
+      - value: 'STOPSHIP:'
+        reason: 'Forbidden STOPSHIP marker, please address before shipping.'
+  MagicNumber:
+    active: false
+  MandatoryBracesLoops:
+    active: true
+  MaxLineLength:
+    maxLineLength: 120
+    excludeCommentStatements: true
+  ObjectLiteralToLambda:
+    active: true
+  RedundantExplicitType:
+    active: true
+  ReturnCount:
+    excludeGuardClauses: true
+  UnnecessaryLet:
+    active: true
+  UnusedPrivateMember:
+    allowedNames: '(_|ignored|expected|serialVersionUID)'
+  UseCheckOrError:
+    active: true
+  UseRequire:
+    active: true
+  VarCouldBeVal:
+    active: true
+  WildcardImport:
+    active: false
+
+exceptions:
+  NotImplementedDeclaration:
+    active: true
+  RethrowCaughtException:
+    active: true
+  ReturnFromFinally:
+    active: true
+  ThrowingExceptionFromFinally:
+    active: true
+  ThrowingExceptionsWithoutMessageOrCause:
+    active: true
+  TooGenericExceptionCaught:
+    active: false

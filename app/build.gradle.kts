@@ -30,7 +30,7 @@ dependencies {
     implementation(project(":core:designsystem"))
     implementation(project(":feature:home"))
 
-    // Navigation 3
+    // Navigation 3 (TODO: Version Catalog accessor 対応)
     implementation("androidx.navigation3:navigation3-runtime:1.0.0")
     implementation("androidx.navigation3:navigation3-ui:1.0.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0")

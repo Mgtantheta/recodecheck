@@ -8,6 +8,8 @@ import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
+import com.mgtantheta.blueprint.feature.home.HomeRoute
+import com.mgtantheta.blueprint.feature.home.homeScreen
 
 @Composable
 fun BlueprintNavigation(

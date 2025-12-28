@@ -23,6 +23,8 @@ dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
+    compileOnly(libs.hilt.gradlePlugin)
+    compileOnly(libs.ksp.gradlePlugin)
 }
 
 gradlePlugin {
@@ -42,6 +44,14 @@ gradlePlugin {
         register("androidLibraryCompose") {
             id = "blueprint.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
+        register("androidHilt") {
+            id = "blueprint.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
+        }
+        register("androidFeature") {
+            id = "blueprint.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
         }
     }
 }

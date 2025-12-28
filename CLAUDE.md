@@ -32,25 +32,27 @@ Claude Code (claude.ai/code) 向けのプロジェクトガイド。
 
 ## Architecture
 
-MVVM + Repository + DDD (Clean Architecture)
+MVVM + Repository (NiA Style)
 
 ```
-Presentation (UI)
-    │ UiState, UiEvent
+UI Layer
+    │ UiState, Events
     ▼
- ViewModel
+ViewModel
     │ suspend fun, Flow
     ▼
-Domain (UseCase)
-    │ Entity
-    ▼
-Repository (Interface)
+Repository
     │
     ▼
-Data (Implementation)
+Data Sources
     ├── Remote (Ktor)
     └── Local (DataStore / Room)
 ```
+
+**ポイント:**
+- UseCase は「複数Repositoryを組み合わせる時だけ」作成
+- シンプルな CRUD は ViewModel → Repository 直接
+- 過度な抽象化を避ける
 
 ## Module Structure (Target)
 
@@ -82,7 +84,7 @@ blueprint/
 
 | カテゴリ | 技術 |
 |----------|------|
-| Language | Kotlin 2.0+, JVM 17 |
+| Language | Kotlin 2.0+, JVM 21 |
 | UI | Jetpack Compose, Material 3 |
 | Navigation | Navigation 3 |
 | DI | Hilt |

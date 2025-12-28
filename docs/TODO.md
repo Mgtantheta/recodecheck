@@ -22,7 +22,7 @@
   - [x] Build workflow (PR時)
   - [x] Lint workflow (Detekt + Spotless)
   - [ ] Release workflow (tag push時)
-  - [x] Renovate導入 (※GitHub Appインストール要: https://github.com/apps/renovate)
+  - [x] Renovate導入
 
 ### Core モジュール
 - [ ] core:common (ユーティリティ)

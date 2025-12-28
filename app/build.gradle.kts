@@ -28,6 +28,7 @@ android {
 
 dependencies {
     implementation(project(":core:designsystem"))
+    implementation(project(":feature:home"))
 
     // Navigation 3
     implementation("androidx.navigation3:navigation3-runtime:1.0.0")

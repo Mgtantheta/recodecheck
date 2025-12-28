@@ -8,21 +8,22 @@ import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
-import com.mgtantheta.blueprint.ui.HomeScreen
 
 @Composable
 fun BlueprintNavigation(
     modifier: Modifier = Modifier,
 ) {
-    val navigationState = rememberNavigationState(
-        startRoute = HomeRoute,
-        topLevelRoutes = setOf(HomeRoute),
-    )
+    val navigationState =
+        rememberNavigationState(
+            startRoute = HomeRoute,
+            topLevelRoutes = setOf(HomeRoute),
+        )
     val navigator = remember { Navigator(navigationState) }
 
-    val provider: (NavKey) -> NavEntry<NavKey> = entryProvider {
-        entry<HomeRoute> { HomeScreen() }
-    }
+    val provider: (NavKey) -> NavEntry<NavKey> =
+        entryProvider {
+            homeScreen()
+        }
 
     CompositionLocalProvider(LocalNavigator provides navigator) {
         NavDisplay(

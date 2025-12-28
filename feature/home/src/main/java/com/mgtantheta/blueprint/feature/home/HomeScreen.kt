@@ -1,4 +1,4 @@
-package com.mgtantheta.blueprint.ui
+package com.mgtantheta.blueprint.feature.home
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,9 +15,10 @@ fun HomeScreen(
 ) {
     Scaffold(modifier = modifier.fillMaxSize()) { innerPadding ->
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
             contentAlignment = Alignment.Center,
         ) {
             Text(text = "Hello Android!")

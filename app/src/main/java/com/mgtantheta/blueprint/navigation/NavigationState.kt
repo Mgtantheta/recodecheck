@@ -26,13 +26,14 @@ fun rememberNavigationState(
     startRoute: NavKey,
     topLevelRoutes: Set<NavKey>,
 ): NavigationState {
-    val topLevelRoute = rememberSerializable(
-        startRoute,
-        topLevelRoutes,
-        serializer = MutableStateSerializer(NavKeySerializer()),
-    ) {
-        mutableStateOf(startRoute)
-    }
+    val topLevelRoute =
+        rememberSerializable(
+            startRoute,
+            topLevelRoutes,
+            serializer = MutableStateSerializer(NavKeySerializer()),
+        ) {
+            mutableStateOf(startRoute)
+        }
 
     val backStacks = topLevelRoutes.associateWith { key -> rememberNavBackStack(key) }
 
@@ -59,11 +60,12 @@ class NavigationState(
 ) {
     var topLevelRoute: NavKey by topLevelRoute
     val stacksInUse: List<NavKey>
-        get() = if (topLevelRoute == startRoute) {
-            listOf(startRoute)
-        } else {
-            listOf(startRoute, topLevelRoute)
-        }
+        get() =
+            if (topLevelRoute == startRoute) {
+                listOf(startRoute)
+            } else {
+                listOf(startRoute, topLevelRoute)
+            }
 }
 
 /**
@@ -73,16 +75,18 @@ class NavigationState(
 fun NavigationState.toEntries(
     entryProvider: (NavKey) -> NavEntry<NavKey>,
 ): SnapshotStateList<NavEntry<NavKey>> {
-    val decoratedEntries = backStacks.mapValues { (_, stack) ->
-        val decorators = listOf(
-            rememberSaveableStateHolderNavEntryDecorator<NavKey>(),
-        )
-        rememberDecoratedNavEntries(
-            backStack = stack,
-            entryDecorators = decorators,
-            entryProvider = entryProvider,
-        )
-    }
+    val decoratedEntries =
+        backStacks.mapValues { (_, stack) ->
+            val decorators =
+                listOf(
+                    rememberSaveableStateHolderNavEntryDecorator<NavKey>(),
+                )
+            rememberDecoratedNavEntries(
+                backStack = stack,
+                entryDecorators = decorators,
+                entryProvider = entryProvider,
+            )
+        }
 
     return stacksInUse
         .flatMap { decoratedEntries[it] ?: emptyList() }

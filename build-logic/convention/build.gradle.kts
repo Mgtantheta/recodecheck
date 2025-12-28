@@ -49,5 +49,9 @@ gradlePlugin {
             id = "blueprint.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
+        register("androidFeature") {
+            id = "blueprint.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
     }
 }

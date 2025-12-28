@@ -29,3 +29,4 @@ rootProject.name = "blueprint"
 
 include(":app")
 include(":core:designsystem")
+include(":feature:home")

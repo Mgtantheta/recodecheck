@@ -9,5 +9,5 @@ data object HomeRoute : NavKey
 
 fun EntryProviderScope<NavKey>.homeScreen() =
     entry<HomeRoute> {
-        HomeScreen(uiState = HomeUiState())
+        HomeScreen()
     }

@@ -27,8 +27,8 @@
 ### Core モジュール
 - [ ] core:common (ユーティリティ)
 - [ ] core:model (共通データモデル)
-- [ ] core:network (Ktor Client)
-- [ ] core:data (Repository実装)
+- [x] core:network (Ktor Client)
+- [x] core:data (Repository実装)
 - [ ] core:domain (UseCase)
 - [ ] core:datastore (DataStore)
 - [ ] core:ui (再利用可能Component)
@@ -36,7 +36,7 @@
 ### ライブラリ導入
 - [x] Hilt (DI)
 - [x] Navigation 3
-- [ ] Ktor Client
+- [x] Ktor Client
 - [x] Kotlinx Serialization
 - [x] Coil 3
 - [x] Lottie Compose

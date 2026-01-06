@@ -9,15 +9,16 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class SampleRepositoryImpl @Inject constructor(
-    private val gitHubService: GitHubService,
-) : SampleRepository {
+class SampleRepositoryImpl
+    @Inject
+    constructor(
+        private val gitHubService: GitHubService,
+    ) : SampleRepository {
+        private val _repos = MutableStateFlow<List<Repo>>(emptyList())
 
-    private val _repos = MutableStateFlow<List<Repo>>(emptyList())
+        override fun getRepos(): Flow<List<Repo>> = _repos.asStateFlow()
 
-    override fun getRepos(): Flow<List<Repo>> = _repos.asStateFlow()
-
-    override suspend fun refresh() {
-        _repos.value = gitHubService.getRepos("mgtantheta")
+        override suspend fun refresh() {
+            _repos.value = gitHubService.getRepos("mgtantheta")
+        }
     }
-}

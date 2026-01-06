@@ -11,16 +11,18 @@ import javax.inject.Singleton
 @Serializable
 private data class GitHubRepoResponse(
     val name: String,
-){
+) {
     fun toDomain(): Repo = Repo(name = name)
 }
 
 @Singleton
-class GitHubService @Inject constructor(
-    private val httpClient: HttpClient,
-) {
-    suspend fun getRepos(username: String): List<Repo> =
-        httpClient.get("https://api.github.com/users/$username/repos")
-            .body<List<GitHubRepoResponse>>()
-            .map { it.toDomain() }
-}
+class GitHubService
+    @Inject
+    constructor(
+        private val httpClient: HttpClient,
+    ) {
+        suspend fun getRepos(username: String): List<Repo> =
+            httpClient.get("https://api.github.com/users/$username/repos")
+                .body<List<GitHubRepoResponse>>()
+                .map { it.toDomain() }
+    }

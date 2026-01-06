@@ -3,6 +3,7 @@ package com.mgtantheta.blueprint.feature.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mgtantheta.blueprint.core.data.repository.SampleRepository
+import com.mgtantheta.blueprint.core.model.Repo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -27,14 +28,14 @@ class HomeViewModel
             viewModelScope.launch {
                 _uiState.value = State.Loading
                 runCatching {
-                    sampleRepository.refreshSamples()
-                    sampleRepository.getSamples().collect { samples ->
+                    sampleRepository.refresh()
+                    sampleRepository.getRepos().collect { repos ->
                         _uiState.value =
                             State.Success(
                                 HomeUiState(
                                     userName = "Mgtantheta",
                                     avatarUrl = "https://github.com/Mgtantheta.png",
-                                    samples = samples,
+                                    repos = repos,
                                 ),
                             )
                     }
@@ -56,5 +57,5 @@ sealed interface State {
 data class HomeUiState(
     val userName: String = "Mgtantheta",
     val avatarUrl: String = "https://github.com/Mgtantheta.png",
-    val samples: List<String> = emptyList(),
+    val repos: List<Repo> = emptyList(),
 )

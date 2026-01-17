@@ -7,16 +7,16 @@
 
 | カテゴリ | 技術 |
 |----------|------|
-| **Language** | Kotlin 2.0+ |
+| **Language** | Kotlin 2.2+ |
 | **UI** | Jetpack Compose + Material 3 |
 | **Navigation** | Navigation 3 (型安全) |
 | **DI** | Hilt |
 | **Networking** | Ktor Client |
 | **Serialization** | Kotlinx Serialization |
-| **Image Loading** | Coil |
+| **Image Loading** | Coil 3 |
 | **Local Storage** | DataStore (+ Room 検討中) |
 | **Async** | Coroutines + Flow |
-| **Build** | Gradle Kotlin DSL + Convention Plugins |
+| **Build** | Gradle 9.3 + Kotlin DSL + Convention Plugins |
 | **CI/CD** | GitHub Actions |
 | **Code Quality** | Detekt + Spotless |
 
@@ -62,20 +62,19 @@ blueprint/
 ├── app/                          # Application module
 │   └── src/
 ├── core/                         # Core modules
-│   ├── common/                   # 共通ユーティリティ
+│   ├── common/                   # 共通ユーティリティ (予定)
 │   ├── data/                     # Repository実装
 │   ├── database/                 # Room (検討中)
-│   ├── datastore/                # DataStore
+│   ├── datastore/                # DataStore (予定)
 │   ├── designsystem/             # Design tokens, Theme, Components
 │   ├── domain/                   # UseCase, Domain models
 │   ├── model/                    # 共通モデル
 │   ├── network/                  # Ktor Client
-│   ├── testing/                  # テスト共通
-│   └── ui/                       # 共通UI Components
+│   ├── testing/                  # テスト共通 (予定)
+│   └── ui/                       # 共通UI Components (予定)
 ├── feature/                      # Feature modules
 │   ├── home/
-│   ├── settings/
-│   └── ...
+│   └── settings/ (予定)
 ├── build-logic/                  # Convention Plugins
 │   └── convention/
 └── gradle/
@@ -104,8 +103,9 @@ app
 | Plugin | 用途 |
 |--------|------|
 | `blueprint.android.application` | Applicationモジュール用 |
+| `blueprint.android.application.compose` | Application + Compose |
 | `blueprint.android.library` | Libraryモジュール用 |
-| `blueprint.android.compose` | Compose設定 |
+| `blueprint.android.library.compose` | Library + Compose |
 | `blueprint.android.hilt` | Hilt設定 |
 | `blueprint.android.feature` | Featureモジュール用 |
 | `blueprint.kotlin.library` | Pure Kotlinモジュール用 |
@@ -119,7 +119,7 @@ app
 | **Build** | Push, PR | ビルド + ユニットテスト |
 | **Lint** | PR | Detekt + Spotless チェック |
 | **UI Test** | PR (main) | Instrumented tests |
-| **Release** | Tag push | APK/AAB ビルド + Release作成 |
+| **Release** | Tag push | APK/AAB ビルド + Release作成 (予定) |
 
 ### Pipeline
 
@@ -209,7 +209,7 @@ PR作成
 # 全ユニットテスト
 ./gradlew test
 
-# カバレッジレポート
+# カバレッジレポート (Kover導入後)
 ./gradlew koverHtmlReport
 
 # UIテスト (要エミュレータ)
@@ -220,9 +220,9 @@ PR作成
 
 ### Requirements
 
-- Android Studio Ladybug+ (2024.2.1)
-- JDK 17+
-- Android SDK 36
+- Android Studio Meerkat+ (2025.1.1)
+- JDK 21
+- Android SDK 36 (compileSdk)
 
 ### Setup
 
@@ -242,13 +242,15 @@ cd blueprint
 
 - [x] マルチモジュール化
 - [x] Convention Plugins 導入
-- [ ] Hilt 導入
-- [ ] Navigation 3 導入
-- [ ] Ktor Client 導入
-- [ ] Detekt + Spotless 導入
-- [ ] GitHub Actions CI/CD
-- [ ] Feature: Home
+- [x] Hilt 導入
+- [x] Navigation 3 導入
+- [x] Ktor Client 導入
+- [x] Detekt + Spotless 導入
+- [x] GitHub Actions CI/CD
+- [x] Feature: Home
 - [ ] Feature: Settings
+- [ ] Kover (カバレッジ)
+- [ ] AGP 9.0.0 対応
 
 ## References
 

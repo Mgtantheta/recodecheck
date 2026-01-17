@@ -10,12 +10,15 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonNamingStrategy
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+    @OptIn(ExperimentalSerializationApi::class)
     @Provides
     @Singleton
     fun provideJson(): Json =
@@ -23,6 +26,7 @@ object NetworkModule {
             ignoreUnknownKeys = true
             coerceInputValues = true
             isLenient = true
+            namingStrategy = JsonNamingStrategy.SnakeCase
         }
 
     @Provides

@@ -1,13 +1,12 @@
-package com.mgtantheta.blueprint.core.data.repository
+package com.mgtantheta.blueprint.core.domain.repository
 
 import com.mgtantheta.blueprint.core.model.Repo
+import com.mgtantheta.blueprint.core.model.User
 import kotlinx.coroutines.flow.Flow
 
-/**
- * サンプルRepository Interface
- * 実際のプロジェクトでは core:domain に移動する
- */
 interface SampleRepository {
+    fun getUser(): Flow<User?>
+
     fun getRepos(): Flow<List<Repo>>
 
     suspend fun refresh()

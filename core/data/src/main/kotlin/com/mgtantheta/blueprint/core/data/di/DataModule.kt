@@ -1,7 +1,7 @@
 package com.mgtantheta.blueprint.core.data.di
 
-import com.mgtantheta.blueprint.core.data.repository.SampleRepository
 import com.mgtantheta.blueprint.core.data.repository.SampleRepositoryImpl
+import com.mgtantheta.blueprint.core.domain.repository.SampleRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

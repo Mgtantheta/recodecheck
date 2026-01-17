@@ -8,7 +8,7 @@ android {
 
 dependencies {
     implementation(project(":core:data"))
-    implementation(project(":core:model"))
+    implementation(project(":core:domain"))
 
     implementation(libs.findLibrary("coil-compose").get())
     implementation(libs.findLibrary("coil-network-ktor3").get())

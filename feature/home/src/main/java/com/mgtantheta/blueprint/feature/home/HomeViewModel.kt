@@ -2,12 +2,13 @@ package com.mgtantheta.blueprint.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mgtantheta.blueprint.core.data.repository.SampleRepository
+import com.mgtantheta.blueprint.core.domain.repository.SampleRepository
 import com.mgtantheta.blueprint.core.model.Repo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -29,15 +30,17 @@ class HomeViewModel
                 _uiState.value = State.Loading
                 runCatching {
                     sampleRepository.refresh()
-                    sampleRepository.getRepos().collect { repos ->
-                        _uiState.value =
-                            State.Success(
-                                HomeUiState(
-                                    userName = "Mgtantheta",
-                                    avatarUrl = "https://github.com/Mgtantheta.png",
-                                    repos = repos,
-                                ),
-                            )
+                    combine(
+                        sampleRepository.getUser(),
+                        sampleRepository.getRepos(),
+                    ) { user, repos ->
+                        HomeUiState(
+                            userName = user?.login ?: "",
+                            avatarUrl = user?.avatarUrl ?: "",
+                            repos = repos,
+                        )
+                    }.collect { uiState ->
+                        _uiState.value = State.Success(uiState)
                     }
                 }.fold(
                     onSuccess = { /* collectで更新済み */ },
@@ -55,7 +58,7 @@ sealed interface State {
 }
 
 data class HomeUiState(
-    val userName: String = "Mgtantheta",
-    val avatarUrl: String = "https://github.com/Mgtantheta.png",
+    val userName: String = "",
+    val avatarUrl: String = "",
     val repos: List<Repo> = emptyList(),
 )

@@ -4,8 +4,6 @@
     "config:recommended",
     ":dependencyDashboard"
   ],
-  "schedule": ["before 3am on Monday"],
-  "timezone": "Asia/Tokyo",
   "labels": ["dependencies"],
   "packageRules": [
     {

@@ -11,5 +11,6 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:network"))
 
+    implementation(platform(libs.findLibrary("kotlinx-coroutines-bom").get()))
     implementation(libs.findLibrary("kotlinx-coroutines-android").get())
 }

@@ -30,5 +30,6 @@ dependencies {
     implementation(project(":feature:home"))
     implementation(libs.findLibrary("coil-compose").get())
     implementation(libs.findLibrary("coil-network-ktor3").get())
+    implementation(platform(libs.findLibrary("ktor-bom").get()))
     implementation(libs.findLibrary("ktor-client-okhttp").get())
 }
